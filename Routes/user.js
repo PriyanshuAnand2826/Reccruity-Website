@@ -10,9 +10,9 @@ router.get('/',async (req,resp)=>{
 
 router.post('/signup',async (req,resp)=>{
   try {
-    const {name,email,password}=req.body
+    const {name,email,password,mobile}=req.body
     const hashedPass=await bcrypt.hash(password,10)
-    const user= await new User({name,email,password:hashedPass})
+    const user= await new User({name,email,password:hashedPass,mobile})
     user.save()
     return resp.status(200).json({success:true,message:"user created"})
   } catch (error) {

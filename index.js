@@ -3,6 +3,7 @@ const express=require('express')
 const mongoose=require('mongoose')
 const bodyParser=require('body-parser')
 const app=express();
+const cors=require('cors')
 const PORT=process.env.PORT
 const {incomingRequestLogger}=require('./Middleware/index')
 const userRouter=require('./Routes/user')
@@ -14,6 +15,7 @@ const jobRouter = require ('./Routes/job')
 //these two lines are used to take data from any field like form or json 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 app.use(incomingRequestLogger)
 app.use('/recruity/user',userRouter)
 app.use('/recruity/job',jobRouter)

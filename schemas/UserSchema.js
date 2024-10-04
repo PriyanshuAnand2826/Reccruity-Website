@@ -19,6 +19,9 @@ const userSchema = new Schema({
     creationDate: {
         type: Date,
         default: Date.now
+    },mobile:{
+        type:String,
+        required:true
     }
 })
 
